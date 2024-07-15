@@ -1,60 +1,109 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main(){
+  runApp(Myapp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Myapp extends StatelessWidget{
+  const Myapp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Daraz'),
-          backgroundColor: Colors.deepOrange,
-        ),
-        body: ListView.separated(
-          itemCount: 20,
-          itemBuilder: (context, index){
-            return ListTile(
-              tileColor: Colors.tealAccent,
-              title: Image.asset('assets/images/T-Shirt pic.jpg',
-                width: 200,
-                height: 200,
-                fit: BoxFit.cover,
-              ),
-              subtitle: Text('A new T-shirt arrived'),
-              trailing: Column(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            appBar: AppBar(
+              title: Text('Daraz'),
+              backgroundColor: Colors.deepOrangeAccent,
+            ),
+            //   body: SingleChildScrollView(
+            //     scrollDirection: Axis.horizontal,
+            //   child: Row(
+            //     children: [
+            //       Image.asset('assets/images/T-Shirt pic.jpg',
+            //         width: 200,
+            //         height: 200,
+            //         fit: BoxFit.cover,
+            //       ),
+            //       Image.asset('assets/images/T-Shirt pic.jpg',
+            //         width: 200,
+            //         height: 200,
+            //         fit: BoxFit.cover,
+            //       ),
+            //       Image.asset('assets/images/T-Shirt pic.jpg',
+            //         width: 200,
+            //         height: 200,
+            //         fit: BoxFit.cover,
+            //       ),
+            //       Image.asset('assets/images/T-Shirt pic.jpg',
+            //         width: 200,
+            //         height: 200,
+            //         fit: BoxFit.cover,
+            //       ),
+            //       Image.asset('assets/images/T-Shirt pic.jpg',
+            //         width: 200,
+            //         height: 200,
+            //         fit: BoxFit.cover,
+            //       )
+            //     ],
+            //   ),
+            // ),
+            body: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.favorite, color:  Colors.pink,),
-                  Text('Fav')
+                  Row(
+                    children: [
+                      Image.asset('assets/images/T-Shirt pic.jpg',
+                        height: 150,
+                        width: 150,
+                        fit: BoxFit.cover,
+                      ),
+                      Image.asset('assets/images/T-Shirt pic.jpg',
+                        height: 150,
+                        width: 150,
+                        fit: BoxFit.cover,
+                      ),
+                    ],
+                  ),
+                  Image.asset('assets/images/T-Shirt pic.jpg',
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/images/T-Shirt pic.jpg',
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/images/T-Shirt pic.jpg',
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/images/T-Shirt pic.jpg',
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/images/T-Shirt pic.jpg',
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
+                  Image.asset('assets/images/T-Shirt pic.jpg',
+                    height: 150,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  )
                 ],
               ),
-              onTap: (){
-                print('$index item taped');
-              },
-            );
-          },
-          separatorBuilder: (context, index) {
-            return Divider(
-              color: Colors.deepOrange,
-            );
-          },
-        ),
-        // body: GridView.builder(
-        //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 8, mainAxisSpacing: 8),
-        //   itemCount: 20,
-        //   itemBuilder: (context, index) {
-        //     return Image.asset('assets/images/T-Shirt pic.jpg',
-        //               width: 200,
-        //               height: 200,
-        //             );
-        //   },
-        // ),
-      ),
+            )
+        )
     );
+
   }
+
 }
+
