@@ -53,7 +53,7 @@ class HomeState extends State<HomeActivity>{
       ),
       // body: Column(
       //   children: [
-      //     Flexible(
+      //     Expanded(
       //       flex: 1,
       //         child: Container(
       //           height: 300,
@@ -61,7 +61,7 @@ class HomeState extends State<HomeActivity>{
       //           color: Colors.deepOrange,
       //         )
       //     ),
-      //     Flexible(
+      //     Expanded(
       //         flex: 1,
       //         child: Container(
       //           height: 300,
@@ -69,7 +69,7 @@ class HomeState extends State<HomeActivity>{
       //           color: Colors.pink,
       //         )
       //     ),
-      //     Flexible(
+      //     Expanded(
       //         flex: 1,
       //         child: Container(
       //           height: 300,
@@ -77,14 +77,6 @@ class HomeState extends State<HomeActivity>{
       //           color: Colors.deepPurple,
       //         )
       //     ),
-      //     Flexible(
-      //         flex: 1,
-      //         child: Container(
-      //           height: 300,
-      //           width: double.infinity,
-      //           color: Colors.blueAccent,
-      //         )
-      //     )
       //   ],
       // )
 
