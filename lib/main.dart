@@ -47,6 +47,7 @@ class HomeState extends State<HomeActivity>{
       appBar: AppBar(
         title: const Text('Theming'),
       ),
+
       // body: Column(
       //   children: [
       //     Expanded(
@@ -54,7 +55,7 @@ class HomeState extends State<HomeActivity>{
       //         child: Container(
       //           height: 300,
       //           width: double.infinity,
-      //           color: Colors.deepOrange,
+      //           color: Colors.deepOrange, // Expended
       //         )
       //     ),
       //     Expanded(
@@ -78,7 +79,7 @@ class HomeState extends State<HomeActivity>{
 
 
       // body: AspectRatio(
-      //     aspectRatio: 16/8,
+      //     aspectRatio: 16/8, // AspectRatio
       //   child: Center(
       //     child: Container(
       //       height: 200,
@@ -92,7 +93,7 @@ class HomeState extends State<HomeActivity>{
 
       // body: Wrap(
       //   alignment: WrapAlignment.center,
-      //   crossAxisAlignment: WrapCrossAlignment.center,
+      //   crossAxisAlignment: WrapCrossAlignment.center, // Wrap Widget
       //   spacing: 2,
       //   children: [
       //     Text('Hello mr.Jihad,glad to see you'),
@@ -103,8 +104,10 @@ class HomeState extends State<HomeActivity>{
       //     Text('Hello mr.Jihad'),
       //   ],
       // ),
+
+
       // body: OrientationBuilder(
-      //   builder:(context, Orientation orientation){
+      //   builder:(context, Orientation orientation){ // OrientationBuilder
       //     if(orientation == Orientation.portrait){
       //       return  Center(
       //           child: Container(
@@ -124,9 +127,11 @@ class HomeState extends State<HomeActivity>{
       //       );
       //     }
       //   }
-      // ),,
+      // )
+
+
       // body: LayoutBuilder(
-      //   builder: (context, BoxConstraints constraints){
+      //   builder: (context, BoxConstraints constraints){ // LayoutBuilder
       //     if(constraints.maxWidth < 640){
       //       return Center(
       //         child: Container(
@@ -165,21 +170,29 @@ class HomeState extends State<HomeActivity>{
       //     }
       //   }
       // ),
+
+
       // body: Column(
       //   mainAxisAlignment: MainAxisAlignment.center,
       //   children: [
       //     Center(
-      //       child: Container(
-      //         height: 200,
-      //         width: 200,
-      //         color: Colors.pink,
+      //       child: Expanded(
+      //         child: Container(
+      //           height: 200,
+      //           width: 200,
+      //           color: Colors.pink,
+      //           child: Center(
+      //               child: Text(MediaQuery.of(context).size.width.toString()) // Media Query
+      //           ),
+      //         ),
       //       ),
       //     )
       //   ],
       // )
 
+
       // body: Center(
-      //   child: FractionallySizedBox(
+      //   child: FractionallySizedBox( // Fractionally Size box
       //     widthFactor: .5,
       //     heightFactor: .5,
       //     child: Container(
@@ -187,6 +200,7 @@ class HomeState extends State<HomeActivity>{
       //     ),
       //   ),
       // ),
+
     );
   }
 }
