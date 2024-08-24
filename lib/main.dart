@@ -1,12 +1,7 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => MyApp(), // Wrap your app
-  ),);
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -34,6 +29,7 @@ class HomeActivity extends StatefulWidget{
 
 }
 class HomeState extends State<HomeActivity>{
+
   @override
   Widget build(BuildContext context) {
 
@@ -64,8 +60,8 @@ class HomeState extends State<HomeActivity>{
       //     Expanded(
       //         flex: 1,
       //         child: Container(
-      //           height: 300,
       //           width: double.infinity,
+      //           height: 300,
       //           color: Colors.pink,
       //         )
       //     ),
@@ -168,6 +164,28 @@ class HomeState extends State<HomeActivity>{
       //       );
       //     }
       //   }
+      // ),
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Center(
+      //       child: Container(
+      //         height: 200,
+      //         width: 200,
+      //         color: Colors.pink,
+      //       ),
+      //     )
+      //   ],
+      // )
+
+      // body: Center(
+      //   child: FractionallySizedBox(
+      //     widthFactor: .5,
+      //     heightFactor: .5,
+      //     child: Container(
+      //       color: Colors.deepPurple,
+      //     ),
+      //   ),
       // ),
     );
   }
