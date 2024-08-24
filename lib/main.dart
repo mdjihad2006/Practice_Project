@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,175 +33,146 @@ class HomeState extends State<HomeActivity>{
 
   @override
   Widget build(BuildContext context) {
-
-    // MediaQueryData mediaQuery = MediaQuery.of(context);
-    //
-    // if(mediaQuery.size.width < 400){
-    //   print('This is Mobile phone');
-    // }
-    // else if(mediaQuery.size.width >400 && mediaQuery.size.width < 1080){
-    //   print('This is a tablet');
-    // }
-    // else{print('This is Laptop');}
+    
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Theming'),
       ),
 
-      // body: Column(
-      //   children: [
-      //     Expanded(
-      //       flex: 1,
-      //         child: Container(
-      //           height: 300,
-      //           width: double.infinity,
-      //           color: Colors.deepOrange, // Expended
-      //         )
-      //     ),
-      //     Expanded(
-      //         flex: 1,
-      //         child: Container(
-      //           width: double.infinity,
-      //           height: 300,
-      //           color: Colors.pink,
-      //         )
-      //     ),
-      //     Expanded(
-      //         flex: 1,
-      //         child: Container(
-      //           height: 300,
-      //           width: double.infinity,
-      //           color: Colors.deepPurple,
-      //         )
-      //     ),
-      //   ],
-      // )
-
-
-      // body: AspectRatio(
-      //     aspectRatio: 16/8, // AspectRatio
-      //   child: Center(
-      //     child: Container(
-      //       height: 200,
-      //       width: 200,
-      //       color: Colors.deepOrange,
-      //       alignment: Alignment.center,
-      //     ),
-      //   ),
-      // ),
-
-
-      // body: Wrap(
-      //   alignment: WrapAlignment.center,
-      //   crossAxisAlignment: WrapCrossAlignment.center, // Wrap Widget
-      //   spacing: 2,
-      //   children: [
-      //     Text('Hello mr.Jihad,glad to see you'),
-      //     Text('Hello mr.Jihad'),
-      //     Text('Hello mr.Jihad,glad to see you'),
-      //     Text('Hello mr.Jihad'),
-      //     Text('Hello mr.Jihad'),
-      //     Text('Hello mr.Jihad'),
-      //   ],
-      // ),
-
-
-      // body: OrientationBuilder(
-      //   builder:(context, Orientation orientation){ // OrientationBuilder
-      //     if(orientation == Orientation.portrait){
-      //       return  Center(
-      //           child: Container(
-      //             height: 200,
-      //             width: 200,
-      //             color: Colors.pink,
-      //           )
-      //       );
-      //     }
-      //     else{
-      //       return  Center(
-      //           child: Container(
-      //             height: 200,
-      //             width: 200,
-      //             color: Colors.deepPurple,
-      //           )
-      //       );
-      //     }
-      //   }
-      // )
-
-
-      // body: LayoutBuilder(
-      //   builder: (context, BoxConstraints constraints){ // LayoutBuilder
-      //     if(constraints.maxWidth < 640){
-      //       return Center(
+      // body: Center(
+      //   child: Stack(
+      //     //alignment: Alignment.center,
+      //     clipBehavior: Clip.none,
+      //     textDirection: TextDirection.ltr,      // Stack widget
+      //     children: [
+      //       Container(
+      //         height: 250,
+      //         width: 250,
+      //         color: Colors.deepPurple,
+      //       ),
+      //       Positioned(
+      //         top: -10,
+      //         left: -10,
       //         child: Container(
       //           height: 200,
       //           width: 200,
       //           color: Colors.pink,
-      //           child: Center(
-      //             child: Text('This is a phone')
-      //           ),
-      //         ),
-      //       );
-      //     }
-      //     else if(constraints.maxWidth > 640 && constraints.maxWidth < 1008){
-      //       return Center(
-      //         child: Container(
-      //           height: 200,
-      //           width: 200,
-      //           color: Colors.blueAccent,
-      //           child: Center(
-      //             child: Text('This is a Tablet')
-      //           ),
-      //         ),
-      //       );
-      //     }
-      //     else{
-      //       return Center(
-      //         child: Container(
-      //           height: 200,
-      //           width: 200,
-      //           color: Colors.green,
-      //           child: Center(
-      //             child: Text('This is a Laptop')
-      //           ),
-      //         ),
-      //       );
-      //     }
-      //   }
-      // ),
-
-
-      // body: Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-      //     Center(
-      //       child: Expanded(
-      //         child: Container(
-      //           height: 200,
-      //           width: 200,
-      //           color: Colors.pink,
-      //           child: Center(
-      //               child: Text(MediaQuery.of(context).size.width.toString()) // Media Query
-      //           ),
       //         ),
       //       ),
-      //     )
-      //   ],
-      // )
-
-
-      // body: Center(
-      //   child: FractionallySizedBox( // Fractionally Size box
-      //     widthFactor: .5,
-      //     heightFactor: .5,
-      //     child: Container(
-      //       color: Colors.deepPurple,
-      //     ),
+      //       Positioned(
+      //         bottom: -10,
+      //         right: -10,
+      //         child: Container(
+      //           height: 150,
+      //           width: 150,
+      //           color: Colors.deepOrangeAccent,
+      //         ),
+      //       ),
+      //       Text('Hey Hello')
+      //     ],
       //   ),
       // ),
 
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,          // Row , Column , Stack
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              height: 200,
+                              width: 200,
+                              color: Colors.pink.shade200,
+                            ),
+                            Container(
+                              height: 150,
+                              width: 150,
+                              color: Colors.blue.shade200,
+                            ),
+                          ]
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Container(
+                        height: 200,
+                        width: 200,
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Container(
+                        height: 200,
+                        width: 200,
+                        color: Colors.limeAccent,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Container(
+                        height: 200,
+                        width: 200,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(3.0),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                          height: 200,
+                          width: 200,
+                          color: Colors.amber.shade200,
+                        ),
+                          Container(
+                            height: 150,
+                            width: 150,
+                            color: Colors.blue.shade200,
+                          ),
+                       ]
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Container(
+                  height: 200,
+                  width: double.infinity,
+                  color: Colors.red,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Container(
+                  height: 200,
+                  width: double.infinity,
+                  color: Colors.pink,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Container(
+                  height: 200,
+                  width: double.infinity,
+                  color: Colors.green,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
