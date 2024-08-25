@@ -1,27 +1,35 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => MyApp(), // Wrap your app
+  ),);
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home: const HomeActivity(),
+      debugShowCheckedModeBanner: false,
+      home:   HomeActivity(),
       title: 'Theming',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.green,
-          centerTitle: true,
+          backgroundColor: Colors.deepPurpleAccent,
+          toolbarHeight: 50,
+          elevation: 10,
         ),
       ),
     );
   }
 }
+
 class HomeActivity extends StatefulWidget{
   const HomeActivity({super.key});
 
@@ -31,147 +39,88 @@ class HomeActivity extends StatefulWidget{
 }
 class HomeState extends State<HomeActivity>{
 
+void  mySnackBar(BuildContext context,String message){
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(message),)
+    );
+  }
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Theming'),
+        toolbarOpacity: 1,
+        title: Text('Hello'),
+        actions: [
+          IconButton(onPressed: (){
+            mySnackBar(context,'Searching product');
+          }, icon: Icon(Icons.search)),
+          IconButton(onPressed: (){
+            mySnackBar(context,'Rate us');
+          }, icon: Icon(Icons.star)),
+          IconButton(onPressed: (){
+            mySnackBar(context, 'Write Email');
+          }, icon: Icon(Icons.email)),
+        ],
       ),
-
-      // body: Center(
-      //   child: Stack(
-      //     //alignment: Alignment.center,
-      //     clipBehavior: Clip.none,
-      //     textDirection: TextDirection.ltr,      // Stack widget
-      //     children: [
-      //       Container(
-      //         height: 250,
-      //         width: 250,
-      //         color: Colors.deepPurple,
-      //       ),
-      //       Positioned(
-      //         top: -10,
-      //         left: -10,
-      //         child: Container(
-      //           height: 200,
-      //           width: 200,
-      //           color: Colors.pink,
-      //         ),
-      //       ),
-      //       Positioned(
-      //         bottom: -10,
-      //         right: -10,
-      //         child: Container(
-      //           height: 150,
-      //           width: 150,
-      //           color: Colors.deepOrangeAccent,
-      //         ),
-      //       ),
-      //       Text('Hey Hello')
-      //     ],
-      //   ),
-      // ),
-
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,          // Row , Column , Stack
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              height: 200,
-                              width: 200,
-                              color: Colors.pink.shade200,
-                            ),
-                            Container(
-                              height: 150,
-                              width: 150,
-                              color: Colors.blue.shade200,
-                            ),
-                          ]
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        color: Colors.deepPurple,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        color: Colors.limeAccent,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        color: Colors.blueAccent,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                          height: 200,
-                          width: 200,
-                          color: Colors.amber.shade200,
-                        ),
-                          Container(
-                            height: 150,
-                            width: 150,
-                            color: Colors.blue.shade200,
-                          ),
-                       ]
-                      ),
-                    )
-                  ],
+      floatingActionButton: FloatingActionButton(
+        elevation: 5,
+        focusColor: Colors.pink,
+        onPressed: (){
+        mySnackBar(context,'Adding product');
+      },child: Icon(Icons.shopping_cart_sharp),),
+      drawer: Drawer(
+        width: 200,
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.all(0),
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.deepPurpleAccent
                 ),
+                  accountName: Text('Jihad Ahmed'),
+                  accountEmail: Text('jihadahmed@gmail.com'),
+                  currentAccountPicture: Image.asset('assets/images/My.png',),
               ),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Container(
-                  height: 200,
-                  width: double.infinity,
-                  color: Colors.red,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Container(
-                  height: 200,
-                  width: double.infinity,
-                  color: Colors.pink,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Container(
-                  height: 200,
-                  width: double.infinity,
-                  color: Colors.green,
-                ),
-              )
-            ],
-          ),
+            ),
+            ListTile(
+              title: Text('Home'),onTap: (){ mySnackBar(context,'This is Home');},
+              leading: Icon(Icons.home,),
+            ),
+            ListTile(
+              title: Text('message'),onTap: (){ mySnackBar(context,'Showing Message');},
+              leading: Icon(Icons.message),
+            ),
+            ListTile(
+              title: Text('Profile'),onTap: (){ mySnackBar(context,'My profile');},
+              leading: Icon(Icons.person),
+            ),
+            ListTile(
+              title: Text('Rate us'),onTap: (){ mySnackBar(context,'Rating us');},
+              leading: Icon(Icons.star),
+            )
+          ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home),label:'Home'),
+
+            BottomNavigationBarItem(icon: Icon(Icons.message),label:'Message'),
+
+            BottomNavigationBarItem(icon: Icon(Icons.person),label:'profile'),
+          ],
+        onTap: (int index){
+            if(index == 1){
+              mySnackBar(context,'This is Home');
+            }
+            else if(index == 2){
+              mySnackBar(context,'Showing Message');
+            }
+            else if(index == 3){
+              mySnackBar(context,'My profile');
+            }
+        },
       ),
     );
   }
